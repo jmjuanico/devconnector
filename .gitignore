@@ -1,0 +1,11 @@
+*~
+*.swp
+*.swo
+*.swm
+*.swn
+*.DS_Store
+*.pyc
+__pycache__/
+node_modules
+*.log
+*.db

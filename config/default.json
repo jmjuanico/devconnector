@@ -1,0 +1,1 @@
+{ "mongoURI": "mongodb://localhost/dev", "jwtSecret": "mysecrettoken", "gitClientId": "118405564615c098b701", "gitSecret": "sikretoparabibo" }
