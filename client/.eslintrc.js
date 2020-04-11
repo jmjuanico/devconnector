@@ -24,6 +24,7 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/prefer-default-export": "off",
-    "react/forbid-prop-types": "off"
+    "react/forbid-prop-types": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 };
