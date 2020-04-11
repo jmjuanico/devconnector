@@ -27,6 +27,8 @@ const Navbar = ({ logout: logoutAction, auth: { isAuthenticated, loading } }) =>
     </ul>
   );
 
+  const isAllowed = !loading && isAuthenticated;
+
   return (
     <nav className="navbar bg-dark">
       <h1>
@@ -36,7 +38,7 @@ const Navbar = ({ logout: logoutAction, auth: { isAuthenticated, loading } }) =>
         </Link>
       </h1>
       <>
-        {!loading && isAuthenticated ? authLinks : guestLinks}
+        {isAllowed ? authLinks : guestLinks}
       </>
     </nav>
   );
