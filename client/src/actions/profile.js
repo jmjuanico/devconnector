@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setAlert } from './alert';
 
 import {
   GET_PROFILE,
@@ -15,7 +14,6 @@ export const getCurrentProfile = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    dispatch(setAlert('Unable to get profile', 'danger'));
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
