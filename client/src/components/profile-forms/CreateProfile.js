@@ -112,7 +112,9 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
         Add some changes to your profile
       </p>
       <small>* = required field</small>
+
       <form className="form" onSubmit={onSubmit}>
+
         <div className="form-group">
           <select name="status" value={status} onChange={onChange}>
             <option>* Select Professional Status</option>
@@ -129,6 +131,7 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
             Give us an idea of where you are at in your career
           </small>
         </div>
+
         <div className="form-group">
           <input
             type="text"
@@ -141,6 +144,7 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
             Could be your own company or one you work for
           </small>
         </div>
+
         <div className="form-group">
           <input
             type="text"
@@ -153,6 +157,7 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
             Could be your own or a company website
           </small>
         </div>
+
         <div className="form-group">
           <input
             type="text"
@@ -165,6 +170,7 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
             City & state suggested (eg. Boston, MA)
           </small>
         </div>
+
         <div className="form-group">
           <input
             type="text"
@@ -177,6 +183,7 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
             Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
           </small>
         </div>
+
         <div className="form-group">
           <input
             type="text"
@@ -190,6 +197,7 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
             username
           </small>
         </div>
+
         <div className="form-group">
           <textarea
             placeholder="A short bio of yourself"
@@ -217,6 +225,7 @@ const CreateProfile = ({ createProfile: createProfileAction, history }) => {
           Go Back
         </Link>
       </form>
+
     </>
   );
 };
