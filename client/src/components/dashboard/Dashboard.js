@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
+import DashboardActions from './DashboardActions';
 
 function Dashboard({
   auth: { user }, profile: { profile, loading },
@@ -12,7 +13,7 @@ function Dashboard({
   // run once by adding empty array second param
   useEffect(() => {
     getCurrentProfileAction();
-  }, []);
+  }, [getCurrentProfileAction]);
   if (loading && profile === null) {
     return (<Spinner />);
   }
@@ -23,7 +24,6 @@ function Dashboard({
       <Link to="/create-profile" className="btn btn-primary my-1">Create Profile</Link>
     </>
   );
-  const displayProfile = (<><p>You have a Profile</p></>);
   return (
     <>
       <h1 className="large text-primary">Dashboard</h1>
@@ -34,7 +34,7 @@ function Dashboard({
         {' '}
         {user && user.name}
       </i>
-      {hasProfile ? displayProfile : createProfile}
+      {hasProfile ? DashboardActions() : createProfile}
     </>
   );
 }
