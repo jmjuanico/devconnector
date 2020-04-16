@@ -36,9 +36,9 @@ export const createProfile = (formData, history, edit = false) => async (dispatc
       payload: res.data,
     });
     if (edit) {
-      dispatch(setAlert('Profile edited'));
+      dispatch(setAlert('Profile edited', 'success'));
     } else {
-      dispatch(setAlert('Profile created'));
+      dispatch(setAlert('Profile created', 'success'));
       // Redirect to dashboard
       history.push('/dashboard');
     }
