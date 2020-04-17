@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
 import DashboardActions from './DashboardActions';
+import Experience from './Experience';
+import Education from './Education';
 
-function Dashboard({
+const Dashboard = ({
   auth: { user }, profile: { profile, loading },
   getCurrentProfile: getCurrentProfileAction,
-}) {
+}) => {
   // run once by adding empty array second param
   useEffect(() => {
     getCurrentProfileAction();
@@ -34,10 +36,16 @@ function Dashboard({
         {' '}
         {user && user.name}
       </i>
-      {hasProfile ? DashboardActions() : createProfile}
+      {hasProfile ? (
+        <>
+          <DashboardActions />
+          <Experience experience={profile.experience} />
+          <Education education={profile.education} />
+        </>
+      ) : createProfile}
     </>
   );
-}
+};
 
 Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
