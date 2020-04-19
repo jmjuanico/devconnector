@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+import { addLike, removeLike, deletePost } from '../../actions/post';
 
 const PostItem = ({
-  addLike,
-  removeLike,
-  deletePost,
+  addLike: addLikeAction,
+  removeLike: removeLikeAction,
+  deletePost: deletePostAction,
   auth,
   post: {
     _id, text, name, avatar, user, likes, comments, date,
@@ -16,7 +17,7 @@ const PostItem = ({
 }) => (
   <div className="post bg-white p-1 my-1">
     <div>
-      <Link to={`/profile/${user}`}>
+      <Link to={`/profile/user/${user}`}>
         <img className="round-img" src={avatar} alt="" />
         <h4>{name}</h4>
       </Link>
@@ -32,7 +33,7 @@ const PostItem = ({
       {showActions && (
         <>
           <button
-            onClick={() => addLike(_id)}
+            onClick={() => addLikeAction(_id)}
             type="button"
             className="btn btn-light"
           >
@@ -41,7 +42,7 @@ const PostItem = ({
             <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
           </button>
           <button
-            onClick={() => removeLike(_id)}
+            onClick={() => removeLikeAction(_id)}
             type="button"
             className="btn btn-light"
           >
@@ -56,7 +57,7 @@ const PostItem = ({
           </Link>
           {!auth.loading && user === auth.user._id && (
             <button
-              onClick={() => deletePost(_id)}
+              onClick={() => deletePostAction(_id)}
               type="button"
               className="btn btn-danger"
             >
@@ -88,5 +89,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { },
+  { addLike, removeLike, deletePost },
 )(PostItem);
